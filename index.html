@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171511"><meta name="description" content="Pixelix: an idle dungeon world of gathering, crafting, combat, and deep progression.">
+<title>PIXELIX — Dungeon Idle</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="game-shell">
+  <header class="topbar">
+    <button class="brand" data-action="goto" data-tab="overview" aria-label="Go to home"><span class="brand-mark">P</span><span class="brand-copy"><b>PIXELIX</b><small>DUNGEON IDLE</small></span></button>
+    <div class="top-resources" id="topResources"></div>
+    <div class="top-tools"><button class="icon-button" data-action="goto" data-tab="codex" title="World codex" aria-label="World codex">⌘</button><button class="icon-button" data-action="open-save" title="Save options" aria-label="Save options">⚙</button><div class="player-level"><span class="avatar-mini">♜</span><span><b id="headerLevel">Lv. 1</b><small>Wayfarer</small></span></div></div>
+  </header>
+  <div class="game-body">
+    <aside class="sidebar">
+      <div class="nav-caption">YOUR WORLD</div>
+      <nav id="mainNav">
+       <button class="nav-item active" data-action="goto" data-tab="overview"><span>⌂</span>Overview</button>
+       <div class="nav-caption nav-gap">SKILLS</div>
+       <button class="nav-item" data-action="goto" data-tab="mining"><span>⛏</span>Mining <i id="navMining">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="woodcutting"><span>♣</span>Woodcutting <i id="navWoodcutting">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="fishing"><span>♧</span>Fishing <i id="navFishing">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="foraging"><span>❋</span>Foraging <i id="navForaging">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="combat"><span>⚔</span>Combat <i id="navCombat">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="smithing"><span>♨</span>Smithing <i id="navSmithing">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="alchemy"><span>⚗</span>Alchemy <i id="navAlchemy">1</i></button>
+       <div class="nav-caption nav-gap">ADVENTURE</div>
+       <button class="nav-item" data-action="goto" data-tab="map"><span>▦</span>World Map</button>
+       <button class="nav-item" data-action="goto" data-tab="dungeons"><span>▧</span>Dungeons <i id="navDungeon">1</i></button>
+       <button class="nav-item" data-action="goto" data-tab="gear"><span>⬡</span>Equipment</button>
+       <button class="nav-item" data-action="goto" data-tab="quests"><span>☷</span>Quests <i id="questBadge" class="nav-badge">!</i></button>
+       <button class="nav-item" data-action="goto" data-tab="research"><span>⌬</span>Research</button>
+       <button class="nav-item" data-action="goto" data-tab="codex"><span>▤</span>Codex</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="torch-row"><span class="torch">♨</span><div><b>Emberkeep</b><small id="worldPhase">The First Dawn</small></div></div><div class="sidebar-foot"><span class="online-dot"></span><span id="saveStatus">World saved locally</span></div></div>
+    </aside>
+    <main class="main-area" id="mainArea" tabindex="-1">
+      <div class="loading"><span class="loader-gem">◆</span><b>Unsealing the crypt…</b></div>
+    </main>
+    <aside class="right-rail" id="rightRail">
+      <section class="rail-card hero-card"><div class="rail-title"><span>YOUR HERO</span><span class="tiny-pill" id="heroTier">NOVICE</span></div><div class="hero-medallion">♜<span class="medallion-glow"></span></div><h3 id="heroName">The Wayfarer</h3><p id="heroSubtitle">A spark in the dark.</p><div class="hero-xp-label"><span>Hero experience</span><b id="heroXPText">0 / 50</b></div><div class="bar"><i id="heroXPBar" style="width:0%"></i></div><div class="hero-stats"><div><small>POWER</small><b id="heroPower">5</b></div><div><small>VITALITY</small><b id="heroVitality">100</b></div><div><small>FLOOR</small><b id="heroFloor">1</b></div></div></section>
+      <section class="rail-card training-card"><div class="rail-title"><span>RUNNING IN BACKGROUND</span><span class="pulse"></span></div><div id="activeTraining" class="active-training"></div><button class="small-wide" data-action="goto" data-tab="overview">Manage training <span>↗</span></button></section>
+      <section class="rail-card goals-card"><div class="rail-title"><span>NEXT MILESTONE</span><span class="tiny-pill">GOAL</span></div><div id="nextGoal" class="next-goal"></div></section>
+      <section class="rail-card log-card"><div class="rail-title"><span>FIELD NOTES</span><button data-action="clear-log" class="quiet-button">CLEAR</button></div><div id="eventLog" class="event-log"></div></section>
+    </aside>
+  </div>
+  <footer class="footer-bar"><span><i class="online-dot"></i> LOCAL WORLD</span><span id="footerSave">Autosave enabled</span><span>Build your legacy · Explore the deep</span></footer>
+</div>
+<div id="modalRoot"></div><div id="toastRoot" class="toast-root" aria-live="polite"></div>
+<script src="data.js"></script><script src="engine.js"></script><script src="ui.js"></script>
+</body></html>
